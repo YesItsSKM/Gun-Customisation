@@ -3,12 +3,18 @@ using UnityEngine;
 
 public class Inspectable : MonoBehaviour
 {
-    bool currentlyBeingInspected;
-    Vector3 initialPosition;
-    Quaternion initialRotation;
+    #region Private Variables
+    private bool currentlyBeingInspected;
+    private float lerpDuration = 0.3f;
 
-    Transform inspectionTransform;
-    float lerpDuration = 0.3f;
+    private Vector3 initialPosition;
+    private Quaternion initialRotation;
+
+    private Transform inspectionTransform;
+
+    private DepthOfFieldManager depthOfFieldManager;
+    #endregion
+
 
     void Start()
     {
@@ -18,6 +24,7 @@ public class Inspectable : MonoBehaviour
         initialRotation = transform.rotation;
 
         inspectionTransform = GameObject.FindGameObjectWithTag("InspectionTransform").transform;
+        depthOfFieldManager = FindAnyObjectByType<DepthOfFieldManager>();
     }
 
     public void StartInspecting()
@@ -25,7 +32,8 @@ public class Inspectable : MonoBehaviour
         currentlyBeingInspected = true;
         Debug.Log("Started inspecting...");
 
-        StartCoroutine(MoveTo(inspectionTransform.position, inspectionTransform.rotation, lerpDuration));
+        StartCoroutine(CR_MoveTo(inspectionTransform.position, inspectionTransform.rotation, lerpDuration));
+        StartCoroutine(depthOfFieldManager.CR_BlurBackground(true, lerpDuration));
     }
 
     public void StopInspecting()
@@ -33,10 +41,11 @@ public class Inspectable : MonoBehaviour
         currentlyBeingInspected = false;
         Debug.Log("Stopped inspecting.");
 
-        StartCoroutine(MoveTo(initialPosition, initialRotation, lerpDuration));
+        StartCoroutine(depthOfFieldManager.CR_BlurBackground(false, lerpDuration));
+        StartCoroutine(CR_MoveTo(initialPosition, initialRotation, lerpDuration));
     }
 
-    IEnumerator MoveTo(Vector3 targetPosition, Quaternion targetRotation, float duration)
+    IEnumerator CR_MoveTo(Vector3 targetPosition, Quaternion targetRotation, float duration)
     {
         float elapsedTime = 0f;
 
@@ -53,4 +62,5 @@ public class Inspectable : MonoBehaviour
         transform.position = targetPosition;
         transform.rotation = targetRotation;
     }
+
 }
