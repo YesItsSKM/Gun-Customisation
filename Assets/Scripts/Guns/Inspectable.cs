@@ -13,6 +13,8 @@ public class Inspectable : MonoBehaviour
     private Transform inspectionTransform;
 
     private DepthOfFieldManager depthOfFieldManager;
+    private Vector2 objectRotation;
+    private float rotationSensitivity = 10f;
     #endregion
 
 
@@ -23,14 +25,33 @@ public class Inspectable : MonoBehaviour
         initialPosition = transform.position;
         initialRotation = transform.rotation;
 
+        objectRotation.x = initialRotation.x;
+        objectRotation.y = initialRotation.y;
+
         inspectionTransform = GameObject.FindGameObjectWithTag("InspectionTransform").transform;
         depthOfFieldManager = FindAnyObjectByType<DepthOfFieldManager>();
+    }
+
+    private void Update()
+    {
+        if (currentlyBeingInspected)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                float deltaX = Input.GetAxis("Mouse X");
+                float deltaY = Input.GetAxis("Mouse Y");
+
+                objectRotation.x += (deltaX * rotationSensitivity);
+                objectRotation.y += (deltaY * rotationSensitivity);
+
+                transform.rotation = Quaternion.Euler(objectRotation.y, objectRotation.x, 0f);
+            }
+        }
     }
 
     public void StartInspecting()
     {
         currentlyBeingInspected = true;
-        Debug.Log("Started inspecting...");
 
         StartCoroutine(CR_MoveTo(inspectionTransform.position, inspectionTransform.rotation, lerpDuration));
         StartCoroutine(depthOfFieldManager.CR_BlurBackground(true, lerpDuration));
@@ -39,7 +60,6 @@ public class Inspectable : MonoBehaviour
     public void StopInspecting()
     {
         currentlyBeingInspected = false;
-        Debug.Log("Stopped inspecting.");
 
         StartCoroutine(depthOfFieldManager.CR_BlurBackground(false, lerpDuration));
         StartCoroutine(CR_MoveTo(initialPosition, initialRotation, lerpDuration));
