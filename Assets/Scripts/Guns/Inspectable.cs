@@ -14,7 +14,7 @@ public class Inspectable : MonoBehaviour
 
     private DepthOfFieldManager depthOfFieldManager;
     private Vector2 objectRotation;
-    private float rotationSensitivity = 10f;
+    private float rotationSensitivity = 3f;
     #endregion
 
 
@@ -41,7 +41,7 @@ public class Inspectable : MonoBehaviour
                 float deltaX = Input.GetAxis("Mouse X");
                 float deltaY = Input.GetAxis("Mouse Y");
 
-                objectRotation.x += (deltaX * rotationSensitivity);
+                objectRotation.x -= (deltaX * rotationSensitivity);
                 objectRotation.y += (deltaY * rotationSensitivity);
 
                 transform.rotation = Quaternion.Euler(objectRotation.y, objectRotation.x, 0f);
