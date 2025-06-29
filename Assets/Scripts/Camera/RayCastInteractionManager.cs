@@ -4,13 +4,15 @@ public class RayCastInteractionManager : MonoBehaviour
 {
     private Camera _camera;
     private Inspectable currentInspectableObject;
+    public Inspectable CurrentInspectableObject => currentInspectableObject;
 
     private bool isInspecting;
+    public bool IsInspecting => isInspecting;
 
     void Awake()
     {
         _camera = Camera.main;
-        isInspecting = false;
+        ResetInspectionManager();
 
         if (_camera == null)
             Debug.LogError($"No Main Camera in the scene.");
@@ -26,7 +28,6 @@ public class RayCastInteractionManager : MonoBehaviour
             if(Physics.Raycast(ray, out RaycastHit hitInfo))
             {
                 GameObject clickedObject = hitInfo.collider.gameObject;
-                //Debug.Log($"Clicked on: {clickedObject}");
 
                 if (clickedObject != null && clickedObject.CompareTag("Inspectable"))
                 {
@@ -40,8 +41,14 @@ public class RayCastInteractionManager : MonoBehaviour
 
         if (isInspecting && Input.GetKeyDown(KeyCode.Escape))
         {
-            isInspecting = false;
             currentInspectableObject.StopInspecting();
+            ResetInspectionManager();
         }
+    }
+
+    public void ResetInspectionManager()
+    {
+        isInspecting = false;
+        currentInspectableObject = null;
     }
 }
