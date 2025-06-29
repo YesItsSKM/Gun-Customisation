@@ -9,14 +9,14 @@ public class DepthOfFieldManager : MonoBehaviour
 
     private Volume postProcessVolume;
     private DepthOfField depthOfField;
-    private float dofDistance_shallowFocus = 1.5f;
-    private float dofDistance_deepFocus = 2.25f;
+    private float dofDistance_shallowFocus = 1.35f;
+    private float dofDistance_deepFocus = 2f;
 
     #endregion
 
     void Start()
     {
-        postProcessVolume = FindAnyObjectByType<Volume>();
+        postProcessVolume = GameObject.FindGameObjectWithTag("MainCameraVolume").GetComponent<Volume>();
 
         if (postProcessVolume != null && postProcessVolume.profile.TryGet(out depthOfField))
         {
