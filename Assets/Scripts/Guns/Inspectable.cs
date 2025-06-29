@@ -49,15 +49,15 @@ public class Inspectable : MonoBehaviour
         }
     }
 
-    public void StartInspecting()
+    public void StartInspecting(float lerpDuration = 0.3f)
     {
         currentlyBeingInspected = true;
 
-        StartCoroutine(CR_MoveTo(inspectionTransform.position, inspectionTransform.rotation, lerpDuration));
         StartCoroutine(depthOfFieldManager.CR_BlurBackground(true, lerpDuration));
+        StartCoroutine(CR_MoveTo(inspectionTransform.position, inspectionTransform.rotation, lerpDuration));
     }
 
-    public void StopInspecting()
+    public void StopInspecting(float lerpDuration = 0.3f)
     {
         currentlyBeingInspected = false;
 
