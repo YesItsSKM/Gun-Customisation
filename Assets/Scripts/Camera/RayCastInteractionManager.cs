@@ -21,7 +21,7 @@ public class RayCastInteractionManager : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetMouseButton(0) && !isInspecting)
+        if (Input.GetMouseButton(0) && !isInspecting && _camera.enabled)
         {
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
