@@ -17,7 +17,8 @@ public class SwitchCameras : MonoBehaviour
         if (cameras.Length == 0)
             Debug.LogError("No cameras found in the scene.");
 
-        ActivateCamera(index: 1);       // security camera
+        currentCameraIndex = 1;     // security camera
+        ActivateCamera(currentCameraIndex);
     }
 
     void Update()
