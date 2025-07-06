@@ -1,11 +1,10 @@
-using System.Collections;
 using System.Linq;
 using UnityEngine;
 
 public class SwitchCameras : MonoBehaviour
 {
     Camera[] cameras;
-    int currentCameraIndex = 0;
+    private int currentCameraIndex = 0;
 
     RayCastInteractionManager rayCastInteractionManager;
 
@@ -18,7 +17,7 @@ public class SwitchCameras : MonoBehaviour
         if (cameras.Length == 0)
             Debug.LogError("No cameras found in the scene.");
 
-        ActivateCamera(index: 0);       // security camera
+        ActivateCamera(index: 1);       // security camera
     }
 
     void Update()
