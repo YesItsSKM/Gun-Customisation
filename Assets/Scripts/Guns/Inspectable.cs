@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Inspectable : MonoBehaviour
 {
+    private GunData gunData;
+
     #region Private Variables
     private bool currentlyBeingInspected;
     private float lerpDuration = 0.3f;
@@ -49,9 +51,18 @@ public class Inspectable : MonoBehaviour
         }
     }
 
+    public void SetGunData(GunData gunData)
+    {
+        this.gunData = gunData;
+    }
+
+    public GunData GetGunData () => gunData;
+
     public void StartInspecting(float lerpDuration = 0.3f)
     {
         currentlyBeingInspected = true;
+
+        GunEvents.FireGunInspectionEvent(GetGunData());    // fire event
 
         StartCoroutine(depthOfFieldManager.CR_BlurBackground(true, lerpDuration));
         StartCoroutine(CR_MoveTo(inspectionTransform.position, inspectionTransform.rotation, lerpDuration));
@@ -60,6 +71,8 @@ public class Inspectable : MonoBehaviour
     public void StopInspecting(float lerpDuration = 0.3f)
     {
         currentlyBeingInspected = false;
+
+        GunEvents.FireGunInspectionEndedEvent();
 
         StartCoroutine(depthOfFieldManager.CR_BlurBackground(false, lerpDuration));
         StartCoroutine(CR_MoveTo(initialPosition, initialRotation, lerpDuration));
