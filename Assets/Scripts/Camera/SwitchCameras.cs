@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using TMPro;
 
 public class SwitchCameras : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class SwitchCameras : MonoBehaviour
     private int currentCameraIndex = 0;
 
     RayCastInteractionManager rayCastInteractionManager;
+
+    [SerializeField] private TextMeshProUGUI activeCamText;
 
     void Start()
     {
@@ -43,5 +46,7 @@ public class SwitchCameras : MonoBehaviour
         {
             cameras[i].enabled = (i == index);
         }
+
+        activeCamText.text = $"CAM-{currentCameraIndex + 1}";
     }
 }
