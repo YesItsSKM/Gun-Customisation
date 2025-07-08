@@ -31,6 +31,9 @@ public class GunSpawnerManager : MonoBehaviour
             newGun.transform.SetParent(gunsSpawnTransform[i].transform, true);
 
             spawnedGunsMap[gunsToSpawn[i]] = newGun;
+
+            Inspectable currentInspectableComponent = newGun.GetComponent<Inspectable>();
+            currentInspectableComponent.SetGunData(gunsToSpawn[i]);
         }
     }
 
