@@ -1,11 +1,13 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GunStatsUIManager : MonoBehaviour
 {
     [SerializeField] GameObject gunsStatsUICanvas;
+    [SerializeField] TextMeshProUGUI statsTitleText;
 
-    [Header("Stat UI Elements")]
+    [Header("Stats UI Elements")]
     [SerializeField] private Slider accuracySlider;
     [SerializeField] private Slider rangeSlider;
     [SerializeField] private Slider fireRateSlider;
@@ -33,6 +35,9 @@ public class GunStatsUIManager : MonoBehaviour
     void ShowStatsUI(GunData gunData)
     {
         gunsStatsUICanvas.gameObject.SetActive(true);
+
+        string gunName = gunData.gunName.Replace(" ", "_");
+        statsTitleText.text = $"Stats ({gunName})";
 
         accuracySlider.value = Mathf.InverseLerp(0f, 100f, gunData.accuracy);
         rangeSlider.value = Mathf.InverseLerp(0f, 2000f, gunData.range);
