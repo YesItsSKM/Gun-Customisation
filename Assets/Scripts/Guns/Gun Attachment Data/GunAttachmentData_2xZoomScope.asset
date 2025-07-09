@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attachmentName: 2x Zoom Scope
   attachmentType: 0
-  accuracyModifier: 0
-  rangeModifier: 0
+  accuracyModifier: 10
+  rangeModifier: 30
   fireRateModifier: 0
-  recoilModifier: 0
-  reloadTimeModifier: 0
+  recoilModifier: 15
+  reloadTimeModifier: 0.2
   ammoModifier: 0
