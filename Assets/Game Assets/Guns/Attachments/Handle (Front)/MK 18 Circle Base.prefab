@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6468478717003875942}
   - component: {fileID: 3735563160703612508}
   m_Layer: 0
-  m_Name: MK 18 Circle Base.003
+  m_Name: MK 18 Circle Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
