@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GunData_9MM_Pistol
   m_EditorClassIdentifier: 
   gunName: 9MM_PISTOL
-  gunPrefab: {fileID: 5444434170393712229, guid: 1bb1840e9ad246544933e005b0b26ebd,
+  gunPrefab: {fileID: 7302551468151186115, guid: 896373acf2c3a1d478894e332fc012f6,
     type: 3}
   accuracy: 65
   range: 50
