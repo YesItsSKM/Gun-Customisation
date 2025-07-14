@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbdabffcb6c0154eae223abf6324ac9, type: 3}
+  m_Name: GunAttachmentData_Shock_StockLightV
+  m_EditorClassIdentifier: 
+  attachmentName: Stock Light V
+  attachmentPrefab: {fileID: 5748178277037977172, guid: 66a4a16376794d04dbe8dff633864f3b,
+    type: 3}
+  attachmentType: 5
+  accuracyModifier: 2
+  rangeModifier: 10
+  fireRateModifier: -10
+  recoilModifier: -15
+  reloadTimeModifier: 0
+  ammoModifier: 0

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbdabffcb6c0154eae223abf6324ac9, type: 3}
+  m_Name: GunAttachmentData_FrontGripVertical
+  m_EditorClassIdentifier: 
+  attachmentName: Front Grip Vertical
+  attachmentPrefab: {fileID: 6221046516703887328, guid: fed2861a45c00144da8b2c768634a8e8,
+    type: 3}
+  attachmentType: 4
+  accuracyModifier: 6
+  rangeModifier: 0
+  fireRateModifier: 0
+  recoilModifier: -12
+  reloadTimeModifier: -0.1
+  ammoModifier: 0

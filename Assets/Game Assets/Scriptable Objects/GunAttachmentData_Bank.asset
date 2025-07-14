@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33de95acbe7f15044ab0c50636037210, type: 3}
   m_Name: GunAttachmentData_Bank
   m_EditorClassIdentifier: 
-  attachments: []
+  attachments:
+  - AttachmentType: 0
+    attachments: []

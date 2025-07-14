@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcbdabffcb6c0154eae223abf6324ac9, type: 3}
-  m_Name: GunAttachmentData_2xZoomScope
+  m_Name: GunAttachmentData_Shock_StockDMR
   m_EditorClassIdentifier: 
-  attachmentName: 2x Zoom Scope
-  attachmentPrefab: {fileID: 6809498314448434518, guid: 18a9b20532fbad242bf4d69e8bfce375,
+  attachmentName: Stock DMR
+  attachmentPrefab: {fileID: 8312416896439615846, guid: af55988f3c9045e49ae1c9cbc5aaa7fd,
     type: 3}
-  attachmentType: 0
-  accuracyModifier: 10
-  rangeModifier: 30
-  fireRateModifier: 0
-  recoilModifier: 15
-  reloadTimeModifier: 0.2
+  attachmentType: 5
+  accuracyModifier: 5
+  rangeModifier: 15
+  fireRateModifier: -20
+  recoilModifier: -20
+  reloadTimeModifier: 0
   ammoModifier: 0

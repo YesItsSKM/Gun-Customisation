@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbdabffcb6c0154eae223abf6324ac9, type: 3}
+  m_Name: GunAttachmentData_2xZoomScope
+  m_EditorClassIdentifier: 
+  attachmentName: 2x Zoom Scope
+  attachmentPrefab: {fileID: 6809498314448434518, guid: 18a9b20532fbad242bf4d69e8bfce375,
+    type: 3}
+  attachmentType: 1
+  accuracyModifier: 10
+  rangeModifier: 30
+  fireRateModifier: 0
+  recoilModifier: 15
+  reloadTimeModifier: 0.2
+  ammoModifier: 0
