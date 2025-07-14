@@ -1,20 +1,13 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GunAttachmentData_NewGun", menuName = "Guns/Attachment Data")]
-public class GunAttachmentData : ScriptableObject
+public partial class GunAttachmentData : ScriptableObject
 {
     public string attachmentName = string.Empty;
 
-    public enum AttachmentType 
-    { 
-        Scope,
-        Barrel,
-        Magazine,
-        Grip,
-        Stock
-    };
+    public GameObject attachmentPrefab;
 
-    public AttachmentType attachmentType = AttachmentType.Scope;
+    public AttachmentType attachmentType = AttachmentType.None;
 
     public float accuracyModifier = 0f;
     public float rangeModifier = 0f;

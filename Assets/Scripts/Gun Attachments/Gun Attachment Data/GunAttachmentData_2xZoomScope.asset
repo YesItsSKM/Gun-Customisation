@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: GunAttachmentData_2xZoomScope
   m_EditorClassIdentifier: 
   attachmentName: 2x Zoom Scope
+  attachmentPrefab: {fileID: 6809498314448434518, guid: 18a9b20532fbad242bf4d69e8bfce375,
+    type: 3}
   attachmentType: 0
   accuracyModifier: 10
   rangeModifier: 30
