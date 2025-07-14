@@ -2648,6 +2648,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ammo Text (TMP)
       objectReference: {fileID: 0}
+    - target: {fileID: 6902455892644953580, guid: cbea6cebd8596c3419dd69c190df7696,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902455892644953580, guid: cbea6cebd8596c3419dd69c190df7696,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902455892644953580, guid: cbea6cebd8596c3419dd69c190df7696,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 7102727087892750299, guid: cbea6cebd8596c3419dd69c190df7696,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2852,6 +2867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1019699259}
   - component: {fileID: 1019699258}
+  - component: {fileID: 1019699260}
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: Untagged
@@ -2896,6 +2912,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1019699260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019699257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287bf2821c5e96043926c395c33af537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1024589209
 GameObject:
   m_ObjectHideFlags: 0
@@ -4237,6 +4265,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReloadTime Text (TMP)
       objectReference: {fileID: 0}
+    - target: {fileID: 6902455892644953580, guid: cbea6cebd8596c3419dd69c190df7696,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902455892644953580, guid: cbea6cebd8596c3419dd69c190df7696,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902455892644953580, guid: cbea6cebd8596c3419dd69c190df7696,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 7102727087892750299, guid: cbea6cebd8596c3419dd69c190df7696,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -4744,6 +4787,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FireRate Text (TMP)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902455892644953580, guid: cbea6cebd8596c3419dd69c190df7696,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902455892644953580, guid: cbea6cebd8596c3419dd69c190df7696,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902455892644953580, guid: cbea6cebd8596c3419dd69c190df7696,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7102727087892750299, guid: cbea6cebd8596c3419dd69c190df7696,
         type: 3}
@@ -7212,6 +7270,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Range Text (TMP)
       objectReference: {fileID: 0}
+    - target: {fileID: 6902455892644953580, guid: cbea6cebd8596c3419dd69c190df7696,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902455892644953580, guid: cbea6cebd8596c3419dd69c190df7696,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902455892644953580, guid: cbea6cebd8596c3419dd69c190df7696,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 7102727087892750299, guid: cbea6cebd8596c3419dd69c190df7696,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -8578,6 +8651,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Recoil Text (TMP)
       objectReference: {fileID: 0}
+    - target: {fileID: 6902455892644953580, guid: cbea6cebd8596c3419dd69c190df7696,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902455892644953580, guid: cbea6cebd8596c3419dd69c190df7696,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902455892644953580, guid: cbea6cebd8596c3419dd69c190df7696,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 7102727087892750299, guid: cbea6cebd8596c3419dd69c190df7696,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -9318,6 +9406,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902455892644953580, guid: cbea6cebd8596c3419dd69c190df7696,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902455892644953580, guid: cbea6cebd8596c3419dd69c190df7696,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902455892644953580, guid: cbea6cebd8596c3419dd69c190df7696,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7102727087892750299, guid: cbea6cebd8596c3419dd69c190df7696,
         type: 3}
