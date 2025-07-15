@@ -13,5 +13,24 @@ MonoBehaviour:
   m_Name: GunAttachmentData_Bank
   m_EditorClassIdentifier: 
   attachments:
-  - AttachmentType: 0
-    attachments: []
+  - AttachmentType: 1
+    attachments:
+    - {fileID: 11400000, guid: 9e5cdbeb16b719d40abf5c82e90df1e4, type: 2}
+    - {fileID: 11400000, guid: 5e4ae13e714a4914c9e6d82bee06d53e, type: 2}
+  - AttachmentType: 2
+    attachments:
+    - {fileID: 11400000, guid: 9e5cdbeb16b719d40abf5c82e90df1e4, type: 2}
+  - AttachmentType: 3
+    attachments:
+    - {fileID: 11400000, guid: 9e5cdbeb16b719d40abf5c82e90df1e4, type: 2}
+  - AttachmentType: 4
+    attachments:
+    - {fileID: 11400000, guid: 9e5cdbeb16b719d40abf5c82e90df1e4, type: 2}
+    - {fileID: 11400000, guid: a138ac98622f2f34488f26407f135750, type: 2}
+    - {fileID: 11400000, guid: d7fa86f179e471c46a7f724bafc85bf8, type: 2}
+    - {fileID: 11400000, guid: 78fdf5cc1bc11304da23dcf66f4df11c, type: 2}
+  - AttachmentType: 5
+    attachments:
+    - {fileID: 11400000, guid: 9e5cdbeb16b719d40abf5c82e90df1e4, type: 2}
+    - {fileID: 11400000, guid: 77d088d543d21d441bec18c5047edf3e, type: 2}
+    - {fileID: 11400000, guid: 6999d67591c34314b8430a176ced2981, type: 2}
