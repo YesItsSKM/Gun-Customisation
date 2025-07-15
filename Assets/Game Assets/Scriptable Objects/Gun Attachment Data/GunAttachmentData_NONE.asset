@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbdabffcb6c0154eae223abf6324ac9, type: 3}
+  m_Name: GunAttachmentData_NONE
+  m_EditorClassIdentifier: 
+  attachmentName: None
+  attachmentPrefab: {fileID: 0}
+  attachmentType: 0
+  accuracyModifier: 0
+  rangeModifier: 0
+  fireRateModifier: 0
+  recoilModifier: 0
+  reloadTimeModifier: 0
+  ammoModifier: 0
