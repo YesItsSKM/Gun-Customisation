@@ -16,6 +16,8 @@ public class GunAttachmentDataBank : ScriptableObject
 
     private Dictionary<AttachmentType, List<GunAttachmentData>> attachmentsLookupMap;
 
+    public IReadOnlyDictionary<AttachmentType, List<GunAttachmentData>> AttachmentsLookupMap => attachmentsLookupMap;
+
     private void OnEnable()
     {       
         if (attachmentsLookupMap == null)
@@ -26,13 +28,5 @@ public class GunAttachmentDataBank : ScriptableObject
             if (!attachmentsLookupMap.ContainsKey(attachment.AttachmentType))
                 attachmentsLookupMap[attachment.AttachmentType] = attachment.attachments;
         }
-    }
-
-    public List<GunAttachmentData> GetAllGunAttachmentDataOfType(AttachmentType attachmentType)
-    {
-        // TryGetValue with the key 'attachmentType'; if a list of attachment exist, return those;
-        // else return an empty new list
-        return attachmentsLookupMap.TryGetValue(attachmentType, out List<GunAttachmentData> result) ?
-            result : new List<GunAttachmentData>();
     }
 }
