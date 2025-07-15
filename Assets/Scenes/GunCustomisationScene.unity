@@ -2730,7 +2730,7 @@ GameObject:
   - component: {fileID: 927381473}
   - component: {fileID: 927381472}
   m_Layer: 5
-  m_Name: Backdrop
+  m_Name: Gun_Attachments (UI)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2868,6 +2868,7 @@ GameObject:
   - component: {fileID: 1019699259}
   - component: {fileID: 1019699258}
   - component: {fileID: 1019699260}
+  - component: {fileID: 1019699261}
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: Untagged
@@ -2924,6 +2925,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287bf2821c5e96043926c395c33af537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunAttachmentDataBank: {fileID: 11400000, guid: 0075d3e775044bb448d430ea77cb5744,
+    type: 2}
+  scopeAttachmentText: {fileID: 1072800215}
+--- !u!114 &1019699261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019699257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37ceacc7e0fe9974296ab8b47d753af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachmentUI: {fileID: 927381470}
 --- !u!1 &1024589209
 GameObject:
   m_ObjectHideFlags: 0
@@ -3229,10 +3246,35 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2726137506182961017, guid: 3e8349304dc706c4c8c207a46ee05243,
+        type: 3}
+      propertyPath: attachmentType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3841742979372840524, guid: 3e8349304dc706c4c8c207a46ee05243,
         type: 3}
       propertyPath: m_Name
       value: Attachment_Slot (Scope)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772896566887688750, guid: 3e8349304dc706c4c8c207a46ee05243,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772896566887688750, guid: 3e8349304dc706c4c8c207a46ee05243,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772896566887688750, guid: 3e8349304dc706c4c8c207a46ee05243,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1019699257}
+    - target: {fileID: 5772896566887688750, guid: 3e8349304dc706c4c8c207a46ee05243,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5902047831297375882, guid: 3e8349304dc706c4c8c207a46ee05243,
         type: 3}
@@ -3325,6 +3367,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1072800213}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1072800215 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6358313492756667247, guid: 3e8349304dc706c4c8c207a46ee05243,
+    type: 3}
+  m_PrefabInstance: {fileID: 1072800213}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1113011997
 GameObject:
   m_ObjectHideFlags: 0
@@ -3917,7 +3971,7 @@ GameObject:
   - component: {fileID: 1225719854}
   - component: {fileID: 1225719856}
   m_Layer: 5
-  m_Name: Backdrop
+  m_Name: Gun_Stats (UI)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5120,6 +5174,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2726137506182961017, guid: 3e8349304dc706c4c8c207a46ee05243,
+        type: 3}
+      propertyPath: attachmentType
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3841742979372840524, guid: 3e8349304dc706c4c8c207a46ee05243,
         type: 3}
       propertyPath: m_Name
@@ -5876,6 +5935,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2726137506182961017, guid: 3e8349304dc706c4c8c207a46ee05243,
+        type: 3}
+      propertyPath: attachmentType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3841742979372840524, guid: 3e8349304dc706c4c8c207a46ee05243,
         type: 3}
@@ -8304,6 +8368,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2726137506182961017, guid: 3e8349304dc706c4c8c207a46ee05243,
+        type: 3}
+      propertyPath: attachmentType
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3841742979372840524, guid: 3e8349304dc706c4c8c207a46ee05243,
         type: 3}
       propertyPath: m_Name
@@ -8851,6 +8920,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2726137506182961017, guid: 3e8349304dc706c4c8c207a46ee05243,
+        type: 3}
+      propertyPath: attachmentType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3841742979372840524, guid: 3e8349304dc706c4c8c207a46ee05243,
         type: 3}
