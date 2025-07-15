@@ -2889,15 +2889,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunsToSpawn:
-  - {fileID: 11400000, guid: f3200a402fab37d4dbfc73784b30620d, type: 2}
-  - {fileID: 11400000, guid: 2faa608926b32bd4f8b73b6330bfe433, type: 2}
-  - {fileID: 11400000, guid: 5453d8cee1ca96f41b8b8fe969228275, type: 2}
-  - {fileID: 11400000, guid: 8c7864f3e71ddab4393c683e1f1e1a36, type: 2}
-  gunsSpawnTransform:
-  - {fileID: 1756066645}
-  - {fileID: 1461668080}
-  - {fileID: 1245569655}
-  - {fileID: 200087134}
+  - gunData: {fileID: 11400000, guid: f3200a402fab37d4dbfc73784b30620d, type: 2}
+    spawnTransform: {fileID: 1756066645}
+  - gunData: {fileID: 11400000, guid: 2faa608926b32bd4f8b73b6330bfe433, type: 2}
+    spawnTransform: {fileID: 1461668080}
+  - gunData: {fileID: 11400000, guid: 5453d8cee1ca96f41b8b8fe969228275, type: 2}
+    spawnTransform: {fileID: 1245569655}
+  - gunData: {fileID: 11400000, guid: 8c7864f3e71ddab4393c683e1f1e1a36, type: 2}
+    spawnTransform: {fileID: 200087134}
 --- !u!4 &1019699259
 Transform:
   m_ObjectHideFlags: 0
@@ -2927,7 +2926,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunAttachmentDataBank: {fileID: 11400000, guid: 0075d3e775044bb448d430ea77cb5744,
     type: 2}
-  scopeAttachmentText: {fileID: 1072800215}
 --- !u!114 &1019699261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3367,18 +3365,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1072800213}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1072800215 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6358313492756667247, guid: 3e8349304dc706c4c8c207a46ee05243,
-    type: 3}
-  m_PrefabInstance: {fileID: 1072800213}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1113011997
 GameObject:
   m_ObjectHideFlags: 0
