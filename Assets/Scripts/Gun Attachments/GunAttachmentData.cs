@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GunAttachmentData_NewGun", menuName = "Guns/Attachment Data")]
-public partial class GunAttachmentData : ScriptableObject
+public class GunAttachmentData : ScriptableObject
 {
     public string attachmentName = string.Empty;
 
