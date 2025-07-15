@@ -1,10 +1,17 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GunSpawnerManager : MonoBehaviour
 {
-    public GunData[] gunsToSpawn;
-    public Transform[] gunsSpawnTransform;
+    [Serializable]
+    public class GunsToSpawn
+    {
+        public GunData gunData;
+        public Transform spawnTransform;
+    }
+
+    public GunsToSpawn[] gunsToSpawn;
 
     private Dictionary<GunData, GameObject> spawnedGunsMap;
 
@@ -14,56 +21,69 @@ public class GunSpawnerManager : MonoBehaviour
         SpawnGuns();
     }
 
-    void SpawnGuns()
+    public void SpawnGuns()
     {
-        if (!RunValidationChecks(gunsToSpawn, gunsSpawnTransform))
+        if (!RunValidationChecks(gunsToSpawn))
             return;
 
         for (int i = 0; i < gunsToSpawn.Length; i++)
         {
-            if (spawnedGunsMap.ContainsKey(gunsToSpawn[i])
-                && spawnedGunsMap[gunsToSpawn[i]] != null) continue;
+            GunData gunData = gunsToSpawn[i].gunData;
+            Transform spawnPoint = gunsToSpawn[i].spawnTransform;
 
-            GameObject newGun = Instantiate(gunsToSpawn[i].gunPrefab,
-                                gunsSpawnTransform[i].transform.position, 
-                                gunsSpawnTransform[i].transform.rotation);
+            if (spawnedGunsMap.ContainsKey(gunData) && spawnedGunsMap[gunData] != null)
+                continue;
 
-            newGun.transform.SetParent(gunsSpawnTransform[i].transform, true);
+            GameObject newGun = Instantiate(gunData.gunPrefab, spawnPoint.position, spawnPoint.rotation);
+            newGun.transform.SetParent(spawnPoint, true);
 
-            spawnedGunsMap[gunsToSpawn[i]] = newGun;
+            spawnedGunsMap[gunData] = newGun;
 
-            Inspectable currentInspectableComponent = newGun.GetComponent<Inspectable>();
-            currentInspectableComponent.SetGunData(gunsToSpawn[i]);
+            Inspectable inspectable = newGun.GetComponent<Inspectable>();
+            if (inspectable != null)
+            {
+                inspectable.SetGunData(gunData);
+            }
         }
     }
 
 
     /// <summary>
-    /// Return FALSE if 'gunsToSpawn[]' and 'gunsSpawnTransform[]' is NULL or has mismatch in number of elements.
+    /// Validates each GunsToSpawn entry; Checks if 'gunData', and/or 'spawnTransform' is NULL.
     /// </summary>
-    /// <param name="gunsToSpawn"></param>
-    /// <param name="gunsSpawnTransform"></param>
-    /// <returns></returns>
-    private bool RunValidationChecks(GunData[] gunsToSpawn, Transform[] gunsSpawnTransform)
+    /// <param name="gunsToSpawn">Array of GunsToSpawn objects to validate</param>
+    /// <returns>TRUE if all entries are valid; otherwise, FALSE</returns>
+
+    private bool RunValidationChecks(GunsToSpawn[] gunsToSpawn)
     {
         bool allOk = true;
 
-        if (gunsToSpawn == null)
+        if (gunsToSpawn == null || gunsToSpawn.Length == 0)
         {
-            Debug.LogError("ERROR: No Guns To Spawn!");
-            allOk = false;
+            Debug.LogError("ERROR: 'gunsToSpawn' array is null or empty.");
+            return false;
         }
 
-        if (gunsSpawnTransform == null)
+        for(int i = 0; i < gunsToSpawn.Length; i++)
         {
-            Debug.LogError("ERROR: Gun Spawnpoints NOT specified!");
-            allOk = false;
-        }
+            if (gunsToSpawn[i] == null)
+            {
+                Debug.LogError($"ERROR: gunsToSpawn[{i}] is null.");
+                allOk = false;
+                continue;
+            }
 
-        if (gunsToSpawn.Length != gunsSpawnTransform.Length)
-        {
-            Debug.LogError("ERROR: Mismatch in 'gunsToSpawn' and 'gunsSpawnTransform' array lengths");
-            allOk = false;
+            if (gunsToSpawn[i].gunData == null)
+            {
+                Debug.LogError($"ERROR: gunData in gunsToSpawn[{i}] is null or empty.");
+                allOk = false;
+            }
+
+            if (gunsToSpawn[i].spawnTransform == null)
+            {
+                Debug.LogError($"ERROR: spawnTransform in gunsToSpawn[{i}] is null or empty.");
+                allOk = false;
+            }
         }
 
         return allOk;
