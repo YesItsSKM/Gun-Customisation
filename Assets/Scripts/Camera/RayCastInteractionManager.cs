@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class RayCastInteractionManager : MonoBehaviour
 {
+    public static RayCastInteractionManager Instance;
+
     private Camera _camera;
     private Inspectable currentInspectableObject;
     public Inspectable CurrentInspectableObject => currentInspectableObject;
@@ -11,6 +13,14 @@ public class RayCastInteractionManager : MonoBehaviour
 
     void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
         _camera = Camera.main;
         ResetInspectionManager();
 
