@@ -15,7 +15,7 @@ public class SwitchCameras : MonoBehaviour
     {
         cameras = FindObjectsOfType<Camera>().OrderBy(cam => cam.name).ToArray();
 
-        rayCastInteractionManager = FindAnyObjectByType<RayCastInteractionManager>();
+        rayCastInteractionManager = RayCastInteractionManager.Instance;
 
         if (cameras.Length == 0)
             Debug.LogError("No cameras found in the scene.");
