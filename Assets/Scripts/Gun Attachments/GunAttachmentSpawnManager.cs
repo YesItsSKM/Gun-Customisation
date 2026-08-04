@@ -21,6 +21,12 @@ public class GunAttachmentSpawnManager : MonoBehaviour
 
     private Dictionary<AttachmentType, int> currentlySelectedAttachmentMap = new Dictionary<AttachmentType, int>();
 
+    private RayCastInteractionManager interactionManagerInstance;
+    private void Start()
+    {
+        interactionManagerInstance = RayCastInteractionManager.Instance;
+    }
+
     public GunAttachmentData CycleAttachment(AttachmentType attachmentType, int direction)
     {
         if (gunAttachmentDataBank == null)
@@ -39,6 +45,24 @@ public class GunAttachmentSpawnManager : MonoBehaviour
 
         var attachment = listOfAttachments[newAttachmentIndex];
 
+        SpawnAttachment(attachment);
+
         return attachment;
+    }
+
+
+    void SpawnAttachment(GunAttachmentData attachment)
+    {
+        var spawnPoints = interactionManagerInstance.CurrentInspectableObject.GetComponentsInChildren<AttachmentSpawnPoint>();
+
+        foreach (var spawnPoint in spawnPoints)
+        {
+            if (attachment.attachmentPrefab == null) continue;
+
+            if (spawnPoint.AttachmentType == attachment.attachmentType)
+            {
+                Instantiate(attachment.attachmentPrefab, spawnPoint.transform);
+            }
+        }
     }
 }
