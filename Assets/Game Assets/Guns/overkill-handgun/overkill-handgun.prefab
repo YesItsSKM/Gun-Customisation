@@ -48,6 +48,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6804190094133409879}
+  - component: {fileID: 5354417081830618716}
   m_Layer: 0
   m_Name: Shock_SpawnPoint
   m_TagString: AttachmentSpawnPoint
@@ -71,6 +72,19 @@ Transform:
   - {fileID: 760634356217049094}
   m_Father: {fileID: 5472239609136760359}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5354417081830618716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661573065199680917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecad34c3a5836da469b607afe8c39b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttachmentType: 5
 --- !u!1 &722797473178078452
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2151157489207978327
 Transform:
   m_ObjectHideFlags: 0
@@ -254,7 +268,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6895709562022868374
 Transform:
   m_ObjectHideFlags: 0
@@ -339,7 +353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3569863701015532041
 Transform:
   m_ObjectHideFlags: 0
@@ -414,6 +428,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 606417013542140075}
+  - component: {fileID: 8794452480749055995}
   m_Layer: 0
   m_Name: Scope_SpawnPoint
   m_TagString: AttachmentSpawnPoint
@@ -437,6 +452,19 @@ Transform:
   - {fileID: 2827833713318056730}
   m_Father: {fileID: 5472239609136760359}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8794452480749055995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862856257990690087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecad34c3a5836da469b607afe8c39b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttachmentType: 1
 --- !u!1 &2726890816357872225
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8983958139067048817}
+  - component: {fileID: 1353145468952374384}
   m_Layer: 0
   m_Name: Extended-Mag_SpawnPoint
   m_TagString: AttachmentSpawnPoint
@@ -469,6 +498,19 @@ Transform:
   - {fileID: 2151157489207978327}
   m_Father: {fileID: 5472239609136760359}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1353145468952374384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2726890816357872225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecad34c3a5836da469b607afe8c39b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttachmentType: 3
 --- !u!1 &3036612242018401267
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,6 +520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 374486796454818917}
+  - component: {fileID: 7286229387150360105}
   m_Layer: 0
   m_Name: Laser_SpawnPoint
   m_TagString: AttachmentSpawnPoint
@@ -501,6 +544,19 @@ Transform:
   - {fileID: 3569863701015532041}
   m_Father: {fileID: 5472239609136760359}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7286229387150360105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3036612242018401267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecad34c3a5836da469b607afe8c39b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttachmentType: 1
 --- !u!1 &3826733660401527694
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,6 +649,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4636110234966458900}
+  - component: {fileID: 471137133898016557}
   m_Layer: 0
   m_Name: Supressor_SpawnPoint
   m_TagString: AttachmentSpawnPoint
@@ -616,6 +673,19 @@ Transform:
   - {fileID: 5944024053481883143}
   m_Father: {fileID: 5472239609136760359}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &471137133898016557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3982209758210184968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecad34c3a5836da469b607afe8c39b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttachmentType: 2
 --- !u!1 &4903251730545348783
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,7 +703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3751582742806836294
 Transform:
   m_ObjectHideFlags: 0
@@ -708,6 +778,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2018171398642664914}
+  - component: {fileID: 193288859248404764}
   m_Layer: 0
   m_Name: Sight_SpawnPoint
   m_TagString: AttachmentSpawnPoint
@@ -731,6 +802,19 @@ Transform:
   - {fileID: 3751582742806836294}
   m_Father: {fileID: 5472239609136760359}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &193288859248404764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6654240450855291790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecad34c3a5836da469b607afe8c39b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttachmentType: 1
 --- !u!1 &6910041246426891461
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,6 +975,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5067693127630062202}
+  - component: {fileID: 3297138978090026442}
   m_Layer: 0
   m_Name: Grip_SpawnPoint
   m_TagString: AttachmentSpawnPoint
@@ -914,6 +999,19 @@ Transform:
   - {fileID: 1949499738161237244}
   m_Father: {fileID: 5472239609136760359}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3297138978090026442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8024601352650762026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecad34c3a5836da469b607afe8c39b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttachmentType: 4
 --- !u!1 &8682145271641852735
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,7 +1029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1949499738161237244
 Transform:
   m_ObjectHideFlags: 0
@@ -1014,7 +1112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &760634356217049094
 Transform:
   m_ObjectHideFlags: 0
@@ -1097,7 +1195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5944024053481883143
 Transform:
   m_ObjectHideFlags: 0
@@ -1172,6 +1270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4684943959112493641}
+  - component: {fileID: 8550467189077515985}
   m_Layer: 0
   m_Name: Belt_SpawnPoint
   m_TagString: AttachmentSpawnPoint
@@ -1195,6 +1294,19 @@ Transform:
   - {fileID: 6895709562022868374}
   m_Father: {fileID: 5472239609136760359}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8550467189077515985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9115570197379684587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecad34c3a5836da469b607afe8c39b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttachmentType: 0
 --- !u!1001 &268069157357039329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1257,6 +1369,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Scope
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809498314448434518, guid: 18a9b20532fbad242bf4d69e8bfce375,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
