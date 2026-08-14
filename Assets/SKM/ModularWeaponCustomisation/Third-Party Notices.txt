@@ -1,0 +1,15 @@
+THIRD-PARTY NOTICES
+===================
+
+The Runtime, Editor, Tests, Documentation, and Samples source currently located
+under Assets/SKM/ModularWeaponCustomisation does not embed third-party source
+code, fonts, models, textures, audio, or other redistributable content.
+
+The GeneratedDemo builder creates geometry from Unity primitives, project-owned
+configuration/source, built-in UI resources, and newly authored material assets.
+Review the generated output again before release.
+
+The legacy workshop/demo content located elsewhere in this repository is under
+separate provenance review and is excluded from the commercial framework package
+until redistribution rights are documented. Any approved sample dependencies
+must be listed in this file before release.

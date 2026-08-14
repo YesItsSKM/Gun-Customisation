@@ -13,11 +13,11 @@ public class GunSpawnerManager : MonoBehaviour
 
     public GunsToSpawn[] gunsToSpawn;
 
-    private Dictionary<GunData, GameObject> spawnedGunsMap;
+    private readonly Dictionary<GunData, GameObject> spawnedGunsMap =
+        new Dictionary<GunData, GameObject>();
 
     void Start()
     {
-        spawnedGunsMap = new Dictionary<GunData, GameObject>();
         SpawnGuns();
     }
 
@@ -76,6 +76,13 @@ public class GunSpawnerManager : MonoBehaviour
             if (gunsToSpawn[i].gunData == null)
             {
                 Debug.LogError($"ERROR: gunData in gunsToSpawn[{i}] is null or empty.");
+                allOk = false;
+            }
+            else if (gunsToSpawn[i].gunData.gunPrefab == null)
+            {
+                Debug.LogError(
+                    $"ERROR: gunPrefab in gunsToSpawn[{i}] is null.",
+                    gunsToSpawn[i].gunData);
                 allOk = false;
             }
 

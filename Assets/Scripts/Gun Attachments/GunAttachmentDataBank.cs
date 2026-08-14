@@ -19,14 +19,25 @@ public class GunAttachmentDataBank : ScriptableObject
     public IReadOnlyDictionary<AttachmentType, List<GunAttachmentData>> AttachmentsLookupMap => attachmentsLookupMap;
 
     private void OnEnable()
-    {       
-        if (attachmentsLookupMap == null)
-            attachmentsLookupMap = new Dictionary<AttachmentType, List<GunAttachmentData>>();
+    {
+        attachmentsLookupMap =
+            new Dictionary<AttachmentType, List<GunAttachmentData>>();
 
-        foreach (var attachment in attachments)
+        if (attachments == null)
         {
-            if (!attachmentsLookupMap.ContainsKey(attachment.AttachmentType))
-                attachmentsLookupMap[attachment.AttachmentType] = attachment.attachments;
+            return;
+        }
+
+        foreach (AttachmentBankGroup attachment in attachments)
+        {
+            if (attachment == null ||
+                attachmentsLookupMap.ContainsKey(attachment.AttachmentType))
+            {
+                continue;
+            }
+
+            attachmentsLookupMap[attachment.AttachmentType] =
+                attachment.attachments ?? new List<GunAttachmentData>();
         }
     }
 }

@@ -3,66 +3,122 @@ using UnityEngine;
 
 public class GunAttachmentSpawnManager : MonoBehaviour
 {
-    #region Singleton Declaration
     public static GunAttachmentSpawnManager Instance { get; private set; }
+
+    [SerializeField] private GunAttachmentDataBank gunAttachmentDataBank;
+
+    private readonly Dictionary<AttachmentType, int> currentlySelectedAttachmentMap =
+        new Dictionary<AttachmentType, int>();
+    private readonly Dictionary<AttachmentSpawnPoint, GameObject> spawnedAttachmentMap =
+        new Dictionary<AttachmentSpawnPoint, GameObject>();
 
     private void Awake()
     {
-        if (Instance != null && Instance == this)
+        if (Instance != null && Instance != this)
         {
-            Destroy(this.gameObject);
+            Debug.LogWarning("Only one GunAttachmentSpawnManager can be active at a time.", this);
+            Destroy(this);
+            return;
         }
 
         Instance = this;
     }
-    #endregion
 
-    [SerializeField] private GunAttachmentDataBank gunAttachmentDataBank;
-
-    private Dictionary<AttachmentType, int> currentlySelectedAttachmentMap = new Dictionary<AttachmentType, int>();
-
-    private RayCastInteractionManager interactionManagerInstance;
-    private void Start()
+    private void OnDestroy()
     {
-        interactionManagerInstance = RayCastInteractionManager.Instance;
+        if (Instance == this)
+        {
+            Instance = null;
+        }
     }
 
     public GunAttachmentData CycleAttachment(AttachmentType attachmentType, int direction)
     {
         if (gunAttachmentDataBank == null)
+        {
             return null;
+        }
 
-        if (!gunAttachmentDataBank.AttachmentsLookupMap.TryGetValue(attachmentType, out var listOfAttachments) || listOfAttachments.Count == 0)
+        if (!gunAttachmentDataBank.AttachmentsLookupMap.TryGetValue(
+                attachmentType,
+                out List<GunAttachmentData> attachments) ||
+            attachments.Count == 0)
+        {
             return null;
+        }
 
         if (!currentlySelectedAttachmentMap.ContainsKey(attachmentType))
+        {
             currentlySelectedAttachmentMap[attachmentType] = 0;
+        }
 
-        int currentAttachmentIndex = currentlySelectedAttachmentMap[attachmentType];
-        int newAttachmentIndex = (currentAttachmentIndex + direction + listOfAttachments.Count) % listOfAttachments.Count;
+        int currentIndex = currentlySelectedAttachmentMap[attachmentType];
+        int newIndex = (currentIndex + direction + attachments.Count) % attachments.Count;
+        currentlySelectedAttachmentMap[attachmentType] = newIndex;
 
-        currentlySelectedAttachmentMap[attachmentType] = newAttachmentIndex;
-
-        var attachment = listOfAttachments[newAttachmentIndex];
-
-        SpawnAttachment(attachment);
-
+        GunAttachmentData attachment = attachments[newIndex];
+        TrySetAttachment(attachmentType, attachment);
         return attachment;
     }
 
-
-    void SpawnAttachment(GunAttachmentData attachment)
+    private bool TrySetAttachment(
+        AttachmentType requestedType,
+        GunAttachmentData attachment)
     {
-        var spawnPoints = interactionManagerInstance.CurrentInspectableObject.GetComponentsInChildren<AttachmentSpawnPoint>();
-
-        foreach (var spawnPoint in spawnPoints)
+        if (attachment == null ||
+            (attachment.attachmentType != AttachmentType.None &&
+             attachment.attachmentType != requestedType))
         {
-            if (attachment.attachmentPrefab == null) continue;
-
-            if (spawnPoint.AttachmentType == attachment.attachmentType)
-            {
-                Instantiate(attachment.attachmentPrefab, spawnPoint.transform);
-            }
+            return false;
         }
+
+        RayCastInteractionManager interactionManager = RayCastInteractionManager.Instance;
+        Inspectable inspectable = interactionManager != null
+            ? interactionManager.CurrentInspectableObject
+            : null;
+
+        if (inspectable == null)
+        {
+            return false;
+        }
+
+        AttachmentSpawnPoint[] spawnPoints =
+            inspectable.GetComponentsInChildren<AttachmentSpawnPoint>(true);
+
+        bool spawned = false;
+        foreach (AttachmentSpawnPoint spawnPoint in spawnPoints)
+        {
+            if (spawnPoint.AttachmentType != requestedType)
+            {
+                continue;
+            }
+
+            if (spawnedAttachmentMap.TryGetValue(
+                    spawnPoint,
+                    out GameObject previousAttachment))
+            {
+                if (previousAttachment != null)
+                {
+                    Destroy(previousAttachment);
+                }
+
+                spawnedAttachmentMap.Remove(spawnPoint);
+            }
+
+            if (attachment.attachmentPrefab != null)
+            {
+                GameObject instance = Instantiate(
+                    attachment.attachmentPrefab,
+                    spawnPoint.transform,
+                    false);
+                instance.transform.localPosition = Vector3.zero;
+                instance.transform.localRotation = Quaternion.identity;
+                spawnedAttachmentMap.Add(spawnPoint, instance);
+            }
+
+            spawned = true;
+        }
+
+        return spawned;
     }
 }

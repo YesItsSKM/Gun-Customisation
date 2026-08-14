@@ -188,8 +188,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: <
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6f4e54777ebd2f847b3c67c9ccdac687, type: 2}
-  m_sharedMaterial: {fileID: -5609750465120677205, guid: 6f4e54777ebd2f847b3c67c9ccdac687,
+  m_fontAsset: {fileID: 11400000, guid: 53ff033539ec4b94bbc259b9122061f7, type: 2}
+  m_sharedMaterial: {fileID: -8539887333884526890, guid: 53ff033539ec4b94bbc259b9122061f7,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -444,8 +444,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Scope
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6f4e54777ebd2f847b3c67c9ccdac687, type: 2}
-  m_sharedMaterial: {fileID: -5609750465120677205, guid: 6f4e54777ebd2f847b3c67c9ccdac687,
+  m_fontAsset: {fileID: 11400000, guid: 53ff033539ec4b94bbc259b9122061f7, type: 2}
+  m_sharedMaterial: {fileID: -8539887333884526890, guid: 53ff033539ec4b94bbc259b9122061f7,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -579,8 +579,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '>'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6f4e54777ebd2f847b3c67c9ccdac687, type: 2}
-  m_sharedMaterial: {fileID: -5609750465120677205, guid: 6f4e54777ebd2f847b3c67c9ccdac687,
+  m_fontAsset: {fileID: 11400000, guid: 53ff033539ec4b94bbc259b9122061f7, type: 2}
+  m_sharedMaterial: {fileID: -8539887333884526890, guid: 53ff033539ec4b94bbc259b9122061f7,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -714,8 +714,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: None
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6f4e54777ebd2f847b3c67c9ccdac687, type: 2}
-  m_sharedMaterial: {fileID: -5609750465120677205, guid: 6f4e54777ebd2f847b3c67c9ccdac687,
+  m_fontAsset: {fileID: 11400000, guid: 53ff033539ec4b94bbc259b9122061f7, type: 2}
+  m_sharedMaterial: {fileID: -8539887333884526890, guid: 53ff033539ec4b94bbc259b9122061f7,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

@@ -1,64 +1,128 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class RayCastInteractionManager : MonoBehaviour
 {
-    public static RayCastInteractionManager Instance;
+    public static RayCastInteractionManager Instance { get; private set; }
 
-    private Camera _camera;
+    [Header("Interaction")]
+    [SerializeField] private Camera interactionCamera;
+    [SerializeField] private LayerMask interactionLayers = ~0;
+    [SerializeField, Min(0f)] private float maximumInteractionDistance = 100f;
+
     private Inspectable currentInspectableObject;
     public Inspectable CurrentInspectableObject => currentInspectableObject;
 
     private bool isInspecting;
     public bool IsInspecting => isInspecting;
 
-    void Awake()
+    private void Awake()
     {
-        if (Instance != null)
+        if (Instance != null && Instance != this)
         {
-            Destroy(gameObject);
+            Debug.LogWarning("Only one RayCastInteractionManager can be active at a time.", this);
+            Destroy(this);
             return;
         }
 
         Instance = this;
-
-        _camera = Camera.main;
         ResetInspectionManager();
 
-        if (_camera == null)
-            Debug.LogError($"No Main Camera in the scene.");
-    }
-    
-    
-    void Update()
-    {
-        if (Input.GetMouseButton(0) && !isInspecting && _camera.enabled)
+        if (interactionCamera == null)
         {
-            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+            interactionCamera = GetComponent<Camera>();
+        }
 
-            if(Physics.Raycast(ray, out RaycastHit hitInfo))
-            {
-                GameObject clickedObject = hitInfo.collider.gameObject;
+        if (interactionCamera == null)
+        {
+            interactionCamera = Camera.main;
+        }
 
-                if (clickedObject != null && clickedObject.CompareTag("Inspectable"))
-                {
-                    currentInspectableObject = clickedObject.GetComponent<Inspectable>();
+        if (interactionCamera == null)
+        {
+            Debug.LogError("Raycast interaction requires an interaction camera.", this);
+        }
+    }
 
-                    currentInspectableObject.StartInspecting();
-                    isInspecting = true;
-                }
-            }
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
+
+    private void Update()
+    {
+        if (currentInspectableObject == null && isInspecting)
+        {
+            ResetInspectionManager();
+        }
+
+        if (!isInspecting && Input.GetMouseButtonDown(0))
+        {
+            TryBeginInspection();
         }
 
         if (isInspecting && Input.GetKeyDown(KeyCode.Escape))
         {
-            currentInspectableObject.StopInspecting();
-            ResetInspectionManager();
+            EndInspection();
         }
+    }
+
+    public void CancelInspection(float transitionDuration = 0f)
+    {
+        EndInspection(transitionDuration);
     }
 
     public void ResetInspectionManager()
     {
         isInspecting = false;
         currentInspectableObject = null;
+    }
+
+    private void TryBeginInspection()
+    {
+        if (EventSystem.current != null &&
+            EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
+        if (interactionCamera == null || !interactionCamera.isActiveAndEnabled)
+        {
+            return;
+        }
+
+        Ray ray = interactionCamera.ScreenPointToRay(Input.mousePosition);
+        if (!Physics.Raycast(ray, out RaycastHit hitInfo, maximumInteractionDistance, interactionLayers))
+        {
+            return;
+        }
+
+        Inspectable inspectable = hitInfo.collider.GetComponentInParent<Inspectable>();
+        if (inspectable == null || !inspectable.TryStartInspecting())
+        {
+            return;
+        }
+
+        currentInspectableObject = inspectable;
+        isInspecting = true;
+    }
+
+    private void EndInspection(float transitionDuration = -1f)
+    {
+        if (currentInspectableObject == null)
+        {
+            ResetInspectionManager();
+            return;
+        }
+
+        Inspectable inspectable = currentInspectableObject;
+        bool stopping = inspectable.TryStopInspecting(transitionDuration, ResetInspectionManager);
+        if (!stopping)
+        {
+            ResetInspectionManager();
+        }
     }
 }

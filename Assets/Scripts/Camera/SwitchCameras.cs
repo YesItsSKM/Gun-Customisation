@@ -4,49 +4,77 @@ using TMPro;
 
 public class SwitchCameras : MonoBehaviour
 {
-    Camera[] cameras;
-    private int currentCameraIndex = 0;
-
-    RayCastInteractionManager rayCastInteractionManager;
-
+    [SerializeField] private Camera[] cameras;
+    [SerializeField, Min(0)] private int initialCameraIndex = 1;
     [SerializeField] private TextMeshProUGUI activeCamText;
 
-    void Start()
+    private int currentCameraIndex;
+    private RayCastInteractionManager rayCastInteractionManager;
+
+    private void Start()
     {
-        cameras = FindObjectsOfType<Camera>().OrderBy(cam => cam.name).ToArray();
+        if (cameras == null || cameras.Length == 0)
+        {
+            cameras = FindObjectsByType<Camera>(FindObjectsSortMode.None)
+                .OrderBy(cameraToSort => cameraToSort.name)
+                .ToArray();
+        }
+
+        cameras = cameras
+            .Where(cameraToKeep => cameraToKeep != null)
+            .Distinct()
+            .ToArray();
 
         rayCastInteractionManager = RayCastInteractionManager.Instance;
 
         if (cameras.Length == 0)
+        {
             Debug.LogError("No cameras found in the scene.");
+            enabled = false;
+            return;
+        }
 
-        currentCameraIndex = 1;     // security camera
+        currentCameraIndex = Mathf.Clamp(initialCameraIndex, 0, cameras.Length - 1);
         ActivateCamera(currentCameraIndex);
     }
 
-    void Update()
+    private void Update()
     {
-        if (cameras != null && !rayCastInteractionManager.IsInspecting && Input.GetKeyDown(KeyCode.C))
+        if (!Input.GetKeyDown(KeyCode.C))
         {
-            currentCameraIndex = (currentCameraIndex + 1) % cameras.Length;
-
-            if (rayCastInteractionManager.IsInspecting)
-            {
-                rayCastInteractionManager.CurrentInspectableObject.StopInspecting(lerpDuration: 0f);
-                rayCastInteractionManager.ResetInspectionManager();
-            }
-
-            ActivateCamera(currentCameraIndex);
+            return;
         }
+
+        if (rayCastInteractionManager == null)
+        {
+            rayCastInteractionManager = RayCastInteractionManager.Instance;
+        }
+
+        if (rayCastInteractionManager != null && rayCastInteractionManager.IsInspecting)
+        {
+            return;
+        }
+
+        currentCameraIndex = (currentCameraIndex + 1) % cameras.Length;
+        ActivateCamera(currentCameraIndex);
     }
 
-    void ActivateCamera(int index = 0)
+    private void ActivateCamera(int index)
     {
         for (int i = 0; i < cameras.Length; i++)
         {
-            cameras[i].enabled = (i == index);
+            bool isActiveCamera = i == index;
+            cameras[i].enabled = isActiveCamera;
+
+            if (cameras[i].TryGetComponent(out AudioListener audioListener))
+            {
+                audioListener.enabled = isActiveCamera;
+            }
         }
 
-        activeCamText.text = $"CAM-{currentCameraIndex + 1}";
+        if (activeCamText != null)
+        {
+            activeCamText.text = $"CAM-{currentCameraIndex + 1}";
+        }
     }
 }

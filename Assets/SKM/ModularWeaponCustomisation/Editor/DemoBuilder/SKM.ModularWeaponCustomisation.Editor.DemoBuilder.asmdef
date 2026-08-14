@@ -1,0 +1,22 @@
+{
+  "name": "SKM.ModularWeaponCustomisation.Editor.DemoBuilder",
+  "rootNamespace": "SKM.ModularWeaponCustomisation.Editor.DemoBuilder",
+  "references": [
+    "SKM.ModularWeaponCustomisation.Runtime",
+    "SKM.ModularWeaponCustomisation.Preview",
+    "SKM.ModularWeaponCustomisation.Persistence",
+    "SKM.ModularWeaponCustomisation.Samples.DemoUI",
+    "Unity.ugui"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

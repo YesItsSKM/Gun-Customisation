@@ -1,0 +1,16 @@
+{
+  "name": "SKM.ModularWeaponCustomisation.Persistence",
+  "rootNamespace": "SKM.ModularWeaponCustomisation.Persistence",
+  "references": [
+    "SKM.ModularWeaponCustomisation.Runtime"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

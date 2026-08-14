@@ -1,0 +1,19 @@
+{
+  "name": "SKM.ModularWeaponCustomisation.Samples.DemoUI",
+  "rootNamespace": "SKM.ModularWeaponCustomisation.Samples.DemoUI",
+  "references": [
+    "SKM.ModularWeaponCustomisation.Runtime",
+    "SKM.ModularWeaponCustomisation.Preview",
+    "SKM.ModularWeaponCustomisation.Persistence",
+    "Unity.ugui"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

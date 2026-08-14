@@ -1,0 +1,19 @@
+{
+  "name": "SKM.ModularWeaponCustomisation.Editor",
+  "rootNamespace": "SKM.ModularWeaponCustomisation.Editor",
+  "references": [
+    "SKM.ModularWeaponCustomisation.Runtime",
+    "SKM.ModularWeaponCustomisation.Persistence"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
